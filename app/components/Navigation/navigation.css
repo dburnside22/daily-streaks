@@ -1,0 +1,23 @@
+.Navigation {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.Navigation-link {
+  color: #495057;
+  text-decoration: none;
+  list-style: none;
+  font-size: 18px;
+}
+
+.Navigation-link a:visited {
+  color: #495057;
+}
+
+.Navigation-link a:hover {
+  color: #007bff;
+}
