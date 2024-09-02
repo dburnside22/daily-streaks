@@ -1,0 +1,12 @@
+.Habit {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  gap: 12px;
+}
+
+.Habit-streak {
+  display: flex;
+  gap: 4px;
+}

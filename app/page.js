@@ -1,6 +1,18 @@
+"use client";
+
 import HabitList from "./components/HabitList/HabitList";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [habitsList, setHabitsList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8090/api/collections/habit/records")
+      .then((response) => response.json())
+      .then((data) => setHabitsList(data.items))
+      .catch((error) => console.error("Error fetching habits:", error));
+  }, []);
+
   const testRecords = [
     {
       id: 1,
@@ -65,8 +77,8 @@ const Home = () => {
   ];
 
   return (
-    <div>
-      <HabitList habits={testRecords} />
+    <div className="Home">
+      <HabitList habits={habitsList} />
     </div>
   );
 };

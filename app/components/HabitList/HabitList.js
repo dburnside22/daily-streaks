@@ -1,8 +1,9 @@
 import Habit from "../Habit/Habit";
+import "./HabitList.css";
 
 const HabitList = ({ habits }) => {
   return (
-    <div>
+    <div className="HabitList">
       {habits.map((habit) => (
         <Habit key={habit.id} habit={habit} />
       ))}
