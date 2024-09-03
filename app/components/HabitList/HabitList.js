@@ -1,13 +1,17 @@
+import AddHabit from "../AddHabit/AddHabit";
 import Habit from "../Habit/Habit";
 import "./HabitList.css";
 
-const HabitList = ({ habits }) => {
+const HabitList = ({ habits, addHabit, deleteHabit }) => {
   return (
-    <div className="HabitList">
-      {habits.map((habit) => (
-        <Habit key={habit.id} habit={habit} />
-      ))}
-    </div>
+    <>
+      <AddHabit addHabit={addHabit} />
+      <div className="HabitList">
+        {habits.map((habit) => (
+          <Habit key={habit.id} habit={habit} deleteHabit={deleteHabit} />
+        ))}
+      </div>
+    </>
   );
 };
 
