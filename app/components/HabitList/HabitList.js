@@ -4,14 +4,12 @@ import "./HabitList.css";
 
 const HabitList = ({ habits, addHabit, deleteHabit }) => {
   return (
-    <>
+    <div className="HabitList">
       <AddHabit addHabit={addHabit} />
-      <div className="HabitList">
-        {habits.map((habit) => (
-          <Habit key={habit.id} habit={habit} deleteHabit={deleteHabit} />
-        ))}
-      </div>
-    </>
+      {habits.map((habit) => (
+        <Habit key={habit.id} habit={habit} deleteHabit={deleteHabit} />
+      ))}
+    </div>
   );
 };
 

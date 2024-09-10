@@ -1,16 +1,28 @@
 "use client";
 
+import HabitChains from "./components/HabitChains/HabitChains";
 import HabitList from "./components/HabitList/HabitList";
 import { useEffect, useState } from "react";
 
 const Home = () => {
   const [habitsList, setHabitsList] = useState([]);
+  const [habitChainList, setHabitChainList] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8090/api/collections/habit/records")
-      .then((response) => response.json())
-      .then((data) => setHabitsList(data.items))
-      .catch((error) => console.error("Error fetching habits:", error));
+    try {
+      fetch("http://127.0.0.1:8090/api/collections/habit/records")
+        .then((response) => response.json())
+        .then((data) => setHabitsList(data.items))
+        .catch((error) => console.error("Error fetching habits:", error));
+      fetch("http://127.0.0.1:8090/api/collections/habitChain/records")
+        .then((response) => response.json())
+        .then((data) => setHabitChainList(data.items))
+        .catch((error) => console.error("Error fetching habits:", error));
+
+      console.log(habitChainList);
+    } catch (error) {
+      console.error("Error fetching habits:", error);
+    }
   }, []);
 
   const addHabit = async (habit) => {
@@ -57,7 +69,9 @@ const Home = () => {
 
   return (
     <div className="Home">
+      <HabitChains habitChains={habitChainList} />
       <HabitList
+        habitChains={habitChainList}
         habits={habitsList}
         addHabit={addHabit}
         deleteHabit={deleteHabit}

@@ -1,0 +1,7 @@
+.HabitChain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #dbdbdb;
+}

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import "./Habit.css";
 
-const Habit = ({ habit, deleteHabit }) => {
+const Habit = ({ habit, deleteHabit, noborder }) => {
   const [completedToday, setCompletedToday] = useState(habit.completedToday);
   const [streak, setStreak] = useState(habit.streak);
   const [isEditing, setIsEditing] = useState(false);
@@ -75,7 +75,7 @@ const Habit = ({ habit, deleteHabit }) => {
   };
 
   return (
-    <div className="Habit">
+    <div className={`Habit ${noborder ? "Habit--noborder" : ""}`}>
       <input
         type="checkbox"
         checked={completedToday}
